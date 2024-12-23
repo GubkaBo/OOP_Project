@@ -13,12 +13,11 @@ public class LibraryAppGUI {
     }
 
     private void initialize() {
-        // Создаем основное окно
+        
         frame = new JFrame("Library Management System");
         frame.setSize(600, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Создаем панели для кнопок и содержимого
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
 
@@ -27,16 +26,13 @@ public class LibraryAppGUI {
         JButton deleteButton = new JButton("Delete Book");
         JButton searchButton = new JButton("Search Book");
 
-        // Добавляем кнопки на панель
         panel.add(addButton);
         panel.add(editButton);
         panel.add(deleteButton);
         panel.add(searchButton);
 
-        // Добавляем панель в окно
         frame.getContentPane().add(BorderLayout.SOUTH, panel);
 
-        // Добавляем действия для кнопок
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -65,7 +61,6 @@ public class LibraryAppGUI {
             }
         });
 
-        // Делаем окно видимым
         frame.setVisible(true);
     }
 
