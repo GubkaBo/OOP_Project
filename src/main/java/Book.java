@@ -6,7 +6,6 @@ public class Book {
     private String genre;
     private String description;
 
-    // Конструктор
     public Book(int id, String title, String author, int year, String genre, String description) {
         this.id = id;
         this.title = title;
@@ -16,7 +15,6 @@ public class Book {
         this.description = description;
     }
 
-    // Геттеры и сеттеры
     public int getId() {
         return id;
     }
@@ -65,7 +63,6 @@ public class Book {
         this.description = description;
     }
 
-    // Метод toString для удобного вывода
     @Override
     public String toString() {
         return "Book{id=" + id +
