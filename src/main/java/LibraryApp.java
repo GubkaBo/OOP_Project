@@ -10,7 +10,6 @@ public class LibraryApp {
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(600, 700);
 
-            // Подключение к базе данных
             DatabaseConnection databaseConnection;
             BookDAO bookDAO;
 
@@ -22,11 +21,9 @@ public class LibraryApp {
                 return;
             }
 
-            // Основная панель
             JPanel mainPanel = new JPanel();
             mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-            // Панель добавления книги
             JPanel addBookPanel = new JPanel(new GridLayout(0, 2, 10, 10));
             addBookPanel.setBorder(BorderFactory.createTitledBorder("Add Book"));
 
@@ -50,7 +47,6 @@ public class LibraryApp {
             addBookPanel.add(new JLabel());
             addBookPanel.add(addButton);
 
-            // Панель поиска книги
             JPanel searchBookPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
             searchBookPanel.setBorder(BorderFactory.createTitledBorder("Search Book"));
 
@@ -60,7 +56,6 @@ public class LibraryApp {
             searchBookPanel.add(searchField);
             searchBookPanel.add(searchButton);
 
-            // Панель удаления книги
             JPanel deleteBookPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
             deleteBookPanel.setBorder(BorderFactory.createTitledBorder("Delete Book"));
 
@@ -70,7 +65,6 @@ public class LibraryApp {
             deleteBookPanel.add(deleteField);
             deleteBookPanel.add(deleteButton);
 
-            // Панель редактирования книги
             JPanel editBookPanel = new JPanel(new GridLayout(0, 2, 10, 10));
             editBookPanel.setBorder(BorderFactory.createTitledBorder("Edit Book"));
 
@@ -97,12 +91,10 @@ public class LibraryApp {
             editBookPanel.add(new JLabel());
             editBookPanel.add(editButton);
 
-            // Поле вывода данных
             JTextArea outputArea = new JTextArea(10, 50);
             outputArea.setEditable(false);
             JScrollPane scrollPane = new JScrollPane(outputArea);
 
-            // Добавление обработчиков кнопок
             addButton.addActionListener(e -> {
                 try {
                     String title = titleField.getText();
@@ -114,7 +106,6 @@ public class LibraryApp {
                     bookDAO.addBook(title, author, year, genre, description);
                     outputArea.append("Book added: " + title + " by " + author + "\n");
 
-                    // Очистка полей
                     titleField.setText("");
                     authorField.setText("");
                     yearField.setText("");
@@ -180,7 +171,6 @@ public class LibraryApp {
                 }
             });
 
-            // Добавление всех компонентов на основную панель
             mainPanel.add(addBookPanel);
             mainPanel.add(searchBookPanel);
             mainPanel.add(deleteBookPanel);
